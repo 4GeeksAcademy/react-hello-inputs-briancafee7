@@ -9,3 +9,25 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.padre{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction:column
+}
+
+.titulo{
+    color:rgb(23, 134, 84)
+}
+
+.inputStyle{
+    width:600px;
+}
+
+.lista{
+              backgroundColor: hoverIndex === index ? "#444" : "#222",
+              transition: "0.3s",
+              listStyle: "none"
+            }
+        
