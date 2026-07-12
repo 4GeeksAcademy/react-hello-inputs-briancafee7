@@ -11,7 +11,9 @@
 */
 
 body {
-    background-color: black;
+    background-color: #8b4513;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    
 }
 
 .padre {
@@ -22,13 +24,39 @@ body {
 }
 
 .titulo {
-    color: rgb(23, 134, 84)
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+
+    padding: 15px 25px;
+
+    /* Borde marrón brillante */
+    border: 6px solid #A0522D; /* Sienna, marrón brillante */
+    border-radius: 12px;
+
+    /* Fondo neutro suave */
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+
+    /* Contorno negro para que destaque */
+    text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+
+    /* Brillo alrededor del borde */
+    box-shadow:
+        0 0 10px rgba(160, 82, 45, 0.7),   /* brillo marrón */
+        0 0 20px rgba(160, 82, 45, 0.5);   /* halo suave */
 }
 
-.inputStyle {
-    height: 80px;
-    width: 600px;
 
+
+
+.inputStyle {
+    border: 6px solid #A0522D; /* Sienna, marrón brillante */
+    border-radius: 12px;
 }
 
 .lista {
@@ -39,26 +67,35 @@ body {
 
 
 .contenedorLista {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm2jm8wscjtET1CzejlCeEKshx9AZ3aEvvijJfH-pnX-OVjFQYm7mB00I&s=10");
+    background-image: url("https://media.istockphoto.com/id/1273345401/es/foto/fondo-textura-hecha-de-hojas-de-eucalipto-verde-con-gota-de-lluvia-roc%C3%ADo-plano-top.jpg?s=612x612&w=0&k=20&c=bq_U7wMauj3mAtdgdrrlDDEHwX1HNumxBDjnHK3ZmLM=");
+    background-size: auto;
+    
+    background-position: center;
+    
+    padding: 20px;
+     
+    border: 6px solid #A0522D; /* Sienna, marrón brillante */
+    border-radius: 12px;
+
+}
+
+.contenedorContador {
+    background-color: #904a18;
+    background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 600px;
-    padding: 20px;
-    border-radius: 10px;
+    border: 6px solid #A0522D; /* Sienna, marrón brillante */
+    border-radius: 12px;
+    
+}
+
+.proTotales{
+    font-weight: 900;
+    text-align: center;
     text-shadow:
-    -3px -3px 0 black,
-     3px -3px 0 black,
-    -3px  3px 0 black,
-     3px  3px 0 black,
-    -3px  0px 0 black,
-     3px  0px 0 black,
-     0px -3px 0 black,
-     0px  3px 0 black;
-    border: 10px solid green
-
-
-
-
-
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
 }
