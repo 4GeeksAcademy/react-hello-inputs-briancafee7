@@ -45,7 +45,7 @@ const Home = () => {
             <div className="row mt-3">
                 <div className="col-10 col-md-6 mx-auto contenedor">
                     <div className="contenedorContador  text-white text-center p-3 rounded">
-                        <h2 className="proTotales text-success">{`PRODUCTOS TOTALES: ${compras.length}`}</h2>
+                        <h2 className="proTotales text-success">{ compras.length > 0 ? `PRODUCTOS TOTALES: ${compras.length}`: "No hay productos añadidos :(" }</h2>
                     </div>
                 </div>
             </div>
