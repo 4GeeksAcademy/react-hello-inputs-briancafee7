@@ -6,20 +6,25 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 const Home = () => {
 	const [inputValue, setInputValue] = useState("")
-	const [peliculas, setPeliculas] = useState([])
+	const [compras, setCompras] = useState([])
 	const [hover, setHover] = useState(null)
 
 
 	return (
-		<div className="bg-dark padre">
-			<h1 className="titulo">Guarda tus películas favoritas</h1>
+		<div className="padre">
+			<h1 className="titulo">CREA TU LISTA DE LA COMPRA:</h1>
 			<div className="input-group input-group-sm mb-3 inputStyle">
-				<input id="input" type="text" className="form-control" aria-label="Sizing example input"
-					aria-describedby="inputGroup-sizing-sm" onChange={e => setInputValue(e.target.value)}
+				<input id="input" type="text" className="form-control fs-1" aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-sm" placeholder="Añade a tu lista de la compra" onChange={e => setInputValue(e.target.value)}
 					value={inputValue} onKeyDown={e => {
 						if (e.key === "Enter") {
-							setPeliculas([...peliculas, inputValue])
-							setInputValue("")
+							if (inputValue === "") {
+								alert("No se admite texto vacío")
+							}
+							else if (true) {
+								setCompras([...compras, inputValue])
+								setInputValue("")
+							}
 
 						}
 					}
@@ -27,25 +32,52 @@ const Home = () => {
 				/>
 
 			</div>
-			<ul>
-				{
-					peliculas.map((pelicula, index) => (
-						<li
-							key={index}
-							className="text-white fs-1 fw-bold hover-effect"
-							onMouseEnter={() => setHover(index)}
-							onMouseLeave={() => setHover(null)}
-							style={{
-								backgroundColor: hover === index ? "#444" : "#222",
-								transition: "0.3s",
-								listStyle: "none"
-							}}
-						>
-							{pelicula}
-						</li>
-					))
-				}
-			</ul>
+			<div className="bg-success">
+				<h2>{TOTAL DE COMPRA: ${} }</h2>
+
+			</div>
+			<div className="contenedorLista">
+				<ul>
+					{
+						compras.map((compra, index) => (
+							<li
+								key={index}
+								className="text-white fs-1 fw-bold hover-effect d-flex justify-content-between align-items-center"
+								onMouseEnter={() => setHover(index)}
+								onMouseLeave={() => setHover(null)}
+								style={{
+									backgroundColor: hover === index ? "#444" : "",
+									transition: "0.3s",
+									listStyle: "none",
+									padding: "10px 20px"
+								}}
+							>
+								{compra}
+
+								{hover === index && (
+									<button
+										style={{
+											background: "transparent",
+											border: "none",
+											color: "red",
+											fontSize: "30px",
+											cursor: "pointer",
+											marginLeft: "30px"
+										}}
+										onClick={() => {
+											setCompras(compras.filter((_, i) => i !== index));
+										}}
+									>
+										X
+									</button>
+
+								)}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
 
 		</div>
 

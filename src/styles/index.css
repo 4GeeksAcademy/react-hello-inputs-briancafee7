@@ -10,24 +10,55 @@
 
 */
 
-.padre{
-    display:flex;
+body {
+    background-color: black;
+}
+
+.padre {
+    display: flex;
     justify-content: center;
-    align-items:center;
-    flex-direction:column
+    align-items: center;
+    flex-direction: column
 }
 
-.titulo{
-    color:rgb(23, 134, 84)
+.titulo {
+    color: rgb(23, 134, 84)
 }
 
-.inputStyle{
-    width:600px;
+.inputStyle {
+    height: 80px;
+    width: 600px;
+
 }
 
-.lista{
-              backgroundColor: hoverIndex === index ? "#444" : "#222",
-              transition: "0.3s",
-              listStyle: "none"
-            }
-        
+.lista {
+    background-color: black;
+    transition: "0.3s";
+    listStyle: "none"
+}
+
+
+.contenedorLista {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm2jm8wscjtET1CzejlCeEKshx9AZ3aEvvijJfH-pnX-OVjFQYm7mB00I&s=10");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    text-shadow:
+    -3px -3px 0 black,
+     3px -3px 0 black,
+    -3px  3px 0 black,
+     3px  3px 0 black,
+    -3px  0px 0 black,
+     3px  0px 0 black,
+     0px -3px 0 black,
+     0px  3px 0 black;
+    border: 10px solid green
+
+
+
+
+
+}
