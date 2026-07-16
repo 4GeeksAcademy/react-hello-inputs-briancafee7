@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -15,6 +17,9 @@ const Home = () => {
 `)
 		const data = await response.json()
 		console.log(data)
+		setCompras(data.todos)
+		console.log(compras)
+		
 	}
 
 	const crearUsuario = async () => {
@@ -41,13 +46,22 @@ const Home = () => {
 				})
 			}
 		)
+		traerTareas()
 	}
 
-	const borrarTareas = async ()=>{
-		const response = await fetch(`https://playground.4geeks.com/todo/todos/usuarioPractica`)
+	const borrarTareas = async (elemento)=>{
+		const response = await fetch(`https://playground.4geeks.com/todo/todos/${elemento}`,
+			{
+				method:"DELETE"
+			}
+		)
+		traerTareas()
 	}
 
-	traerTareas()
+	useEffect(() => {
+        traerTareas()
+
+    }, [])
 
 
 	return (
@@ -74,7 +88,6 @@ const Home = () => {
 								if (!inputValue.trim()) {
 									alert("No se admite texto vacío");
 								} else {
-									setCompras([...compras, inputValue]);
 									crearTareas(inputValue)
 									setInputValue("");
 								}
@@ -95,25 +108,25 @@ const Home = () => {
 			<div className="row contenedorLista">
 				<div className="col-12 col-md-8 mx-auto">
 					<ul className="list-group">
-						{compras.map((compra, index) => {
+						{compras.map((compra) => {
 							return(
 							<li
-								key={index}
+								key={compra.id}
 								className="mb-3 list-group-item d-flex justify-content-between align-items-center fs-4"
-								onMouseEnter={() => setHover(index)}
+								onMouseEnter={() => setHover(compra.id)}
 								onMouseLeave={() => setHover(null)}
 								style={{
-									backgroundColor: hover === index ? "#e9ecef" : "",
+									backgroundColor: hover === compra.id ? "#e9ecef" : "",
 									transition: "0.3s"
 								}}
 							>
-								{compra}
+								{compra.label}
 
-								{hover === index && (
+								{hover === compra.id && (
 									<button
 										className="btn btn-danger btn-sm"
 										onClick={() =>
-											setCompras(compras.filter((_, i) => i !== index))
+											borrarTareas(compra.id)
 										}
 									>
 										X
