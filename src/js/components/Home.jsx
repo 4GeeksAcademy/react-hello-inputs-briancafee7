@@ -80,7 +80,7 @@ const Home = () => {
 					<input
 						type="text"
 						className="inputStyle form-control form-control-lg"
-						placeholder="Añade a tu lista de la compra"
+						placeholder="->Agrega productos aqui<-"
 						value={inputValue}
 						onChange={e => setInputValue(e.target.value)}
 						onKeyDown={e => {
