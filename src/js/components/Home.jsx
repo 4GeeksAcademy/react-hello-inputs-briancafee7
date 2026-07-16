@@ -5,17 +5,50 @@ import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
+	const urlBase = "https://musical-telegram-779q699r6497hp4gr.github.dev/"
 	const [inputValue, setInputValue] = useState("");
 	const [compras, setCompras] = useState([]);
 	const [hover, setHover] = useState(null);
 
-	const traerTareas= async ()=>{
-		const  response = await fetch(`https://fantastic-space-bassoon-5vq6jqq4jpxqf467p.github.dev/users/usuarioPractica`)	
+	const traerTareas = async () => {
+		const response = await fetch(`https://playground.4geeks.com/todo/users/usuarioPractica
+`)
 		const data = await response.json()
 		console.log(data)
 	}
 
+	const crearUsuario = async () => {
+		const response = await fetch(`https://playground.4geeks.com/todo/users/usuarioPractica`,
+			{
+				method: "POST"
+			}
+
+		)
+		const data = await response.json()
+		console.log(data)
+	}
+
+	const crearTareas = async (compra) => {
+		const response = await fetch(`https://playground.4geeks.com/todo/todos/usuarioPractica`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify( {
+					"label": compra,
+					"is_done": false
+				})
+			}
+		)
+	}
+
+	const borrarTareas = async ()=>{
+		const response = await fetch(`https://playground.4geeks.com/todo/todos/usuarioPractica`)
+	}
+
 	traerTareas()
+
 
 	return (
 		<div className="container py-4">
@@ -42,6 +75,7 @@ const Home = () => {
 									alert("No se admite texto vacío");
 								} else {
 									setCompras([...compras, inputValue]);
+									crearTareas(inputValue)
 									setInputValue("");
 								}
 							}
@@ -61,7 +95,8 @@ const Home = () => {
 			<div className="row contenedorLista">
 				<div className="col-12 col-md-8 mx-auto">
 					<ul className="list-group">
-						{compras.map((compra, index) => (
+						{compras.map((compra, index) => {
+							return(
 							<li
 								key={index}
 								className="mb-3 list-group-item d-flex justify-content-between align-items-center fs-4"
@@ -85,7 +120,11 @@ const Home = () => {
 									</button>
 								)}
 							</li>
-						))}
+
+							)
+
+						})}
+
 					</ul>
 				</div>
 			</div>
