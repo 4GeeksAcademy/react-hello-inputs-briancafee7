@@ -16,9 +16,15 @@ const Home = () => {
 		const response = await fetch(`https://playground.4geeks.com/todo/users/usuarioPractica
 `)
 		const data = await response.json()
-		console.log(data)
-		setCompras(data.todos)
-		console.log(compras)
+
+		if (response.ok){
+			console.log(data)
+			setCompras(data.todos)
+			console.log(compras)
+		}
+		else{
+			crearUsuario()
+		}
 		
 	}
 
